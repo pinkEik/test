@@ -70,7 +70,7 @@
               <view class='page_row'>
                   <view class="search">
                     <view class="search_arr">
-                      <input class=""  placeholder="请输入关键字" value="{{searchValue}}" bindinput='searchinfo'/>
+                      <input class=""  placeholder="输入想发布的话" value="{{searchValue}}" bindinput='searchinfo'/>
                     </view>
                   </view>
                   <view class='sousuo' bindtap='onclickpublish'>发布</view>
