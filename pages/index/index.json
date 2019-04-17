@@ -1,0 +1,13 @@
+{
+"navigationBarBackgroundColor": "#7A67EE",
+"navigationBarTextStyle": "white",
+"navigationBarTitleText": "首页",
+"backgroundColor": "#00ffff",
+"backgroundTextStyle": "light",
+
+"usingComponents": {
+  "Select": "/componet/select/select"
+}
+}
+ 
+

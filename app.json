@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/morepage/morepage",
+    "pages/detail/detail",
+    "pages/webview/webview",
+    "pages/search/search"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#46a3ff",
+    "navigationBarTitleText": "哈哈哈",
+    "navigationBarTextStyle": "black"
+  }
+}

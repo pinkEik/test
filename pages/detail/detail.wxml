@@ -1,0 +1,83 @@
+<view class='layout_vertical'>
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="true"  duration="200" indicator-dots="true" indicator-color="#cccccc" indicator-active-color="#0000ff">
+  <block wx:for="{{goodArray}}">
+    <swiper-item>
+      <image src="{{item.src}}" class="newsactionlauout" mode='aspectFill'/>
+    </swiper-item>
+  </block>
+</swiper>
+
+
+<view class='newsactionlauout'>
+  <text class='titlestyle'>{{title}}</text>
+<button class='button_item' size='mini' bindtap='onclick'>立即预约</button>
+</view>
+
+<view class='layout_vertical'>
+
+<!-- 管理开放时间 -->
+<view  class='layout_horizontal'>
+<text class='titlestyle' >管理开放时间</text>
+<text class='text_item'>{{time}}</text>
+</view>
+<view class='line'></view>
+
+
+<!-- 地址 -->
+<view  class='layout_horizontal'>
+<text class='titlestyle' >地址</text>
+<text class='text_item'>{{address}}</text>
+</view>
+<view class='line'></view>
+
+
+<!--电话 -->
+<view  class='layout_horizontal'>
+<text class='titlestyle' >电话</text>
+<text class='text_item'>{{phone}}</text>
+</view>
+<view class='line'></view>
+
+</view>
+
+
+
+<view class="nav-tabs">
+    <view class="tab-list  {{currentTab == idx?'active':'default'}}" wx:for="{{tabArray}}" wx:for-index="idx" wx:for-item="itemName" data-current="{{idx}}" bindtap="swichNav">{{itemName}}</view>
+</view>
+<swiper current="{{currentTab}}" class="tab-content" duration="300"  bindchange="bindChange" scroll-y="true">  
+
+<swiper-item wx:for="{{tabArray}}" wx:for-index="idx" wx:for-item="itemName" class="swiper-item">
+    <view class=""  hidden='{{showOrHiddenInfo}}'>{{swiperinfo}}</view> 
+
+    
+        <!-- 展示评论 -->
+    <view class="show"  wx:for="{{goodArray}}"  hidden='{{showOrHidden}}'>
+   
+          <view class='layout_horizontal'> 
+                <image class='image_item'   src="{{item.src}}"> </image>
+                <view class='layout_vertical'>
+                  <text class='title_item' >{{item.title}}</text>
+                  <text class='text_item'>{{item.name}}</text>
+                </view>
+          </view>
+          
+    </view >
+
+      <!-- 添加评论按钮输入框 -->
+        <view class="addcomment" hidden='{{showOrHidden}}'>
+              <view class='page_row'>
+                  <view class="search">
+                    <view class="search_arr">
+                      <input class=""  placeholder="请输入关键字" value="{{searchValue}}" bindinput='searchinfo'/>
+                    </view>
+                  </view>
+                  <view class='sousuo' bindtap='onclickpublish'>发布</view>
+                </view>
+        </view> 
+
+</swiper-item>
+</swiper>  
+
+</view>

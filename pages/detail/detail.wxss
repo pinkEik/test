@@ -1,0 +1,250 @@
+
+.newsactionlauout{
+  display: flex;
+   flex-direction: row;
+   width: 100%;
+}
+.titlestyle{
+  font-size: 20px;
+   padding: 10px;
+   flex-grow: 1
+
+}
+.button_item{
+ margin: 10px;
+  font-size: 15px;
+  padding: 10px;
+    color: white;
+
+  background: #CD9B1D;
+}
+.text_item{
+  margin: 10px;
+  font-size: 15px;
+  padding: 10px;
+}
+
+
+
+.layout_horizontal {
+  display: flex;
+  /*row 横向  column 列表  */
+  flex-direction: row;
+}
+
+/*纵向布局  */
+
+.layout_vertical {
+  display: flex;
+  /*row 横向  column 列表  */
+  flex-direction: column;
+  padding: 10px;
+}
+
+/*划线  */
+
+.line {
+  background-color:#ccc;
+  height: 2rpx;
+  width: 100%;
+}
+
+.tabchange{
+  flex-grow: 1
+}
+
+
+
+.tab-h{
+    height: 80rpx;
+    width: 100%; 
+    box-sizing: border-box;
+    overflow: hidden;
+    line-height: 80rpx;
+    background: #F7F7F7;
+     font-size: 16px; 
+     white-space: nowrap;
+     position: fixed;top: 0;
+      left: 0; z-index: 99;
+      }
+     .tab-item{
+       margin:0 36rpx;
+       display: inline-block;
+       }
+    
+     .tab-item.active{
+       color: #4675F9;
+       position: relative;
+       }
+       
+        .tab-item.active:after{ 
+          content: "";
+          display: block;
+          height: 8rpx;
+          width: 52rpx;
+          background: #4675F9;
+          position: absolute; 
+          bottom: 0;
+          left: 5rpx;
+          border-radius: 16rpx;
+          } 
+     
+     .item-ans{
+        width: 100%;
+        display: flex; 
+        flex-grow: row no-wrap;
+        justify-content: space-between;
+         padding: 30rpx;
+         box-sizing: border-box; 
+         height: 180rpx;
+         align-items: center;
+         border-bottom: 1px solid #F2F2F2;
+         }
+  
+      .avatar{
+        width: 100rpx;
+        height: 100rpx;
+        position: relative;
+        padding-right: 30rpx;
+        }
+       .avatar .img{
+         width: 100%;
+         height: 100%;
+         }
+
+        .avatar .doyen{
+          width: 40rpx;
+          height: 40rpx;
+          position: absolute;
+          bottom: -2px;
+          right: 20rpx;
+          }
+         .expertInfo{
+           font-size: 12px;
+           flex-grow: 2;
+           color: #B0B0B0;
+           line-height: 1.5em;
+           }
+
+          .expertInfo .name{
+            font-size: 16px;
+            color:#000;
+            margin-bottom: 6px;
+            }
+           .askBtn{ 
+             width: 120rpx;
+             height: 60rpx;
+             line-height: 60rpx;
+             text-align: center;
+             font-size: 14px;
+              border-radius: 60rpx;
+              border: 1px solid #4675F9; 
+              color:#4675F9;
+              }
+            .tab-content{
+              flex: 1;
+              display: block; 
+              margin-top: 92rpx; 
+              }
+             .scoll-h{
+               height: 100%;
+               }
+
+
+.nav-tabs{
+  width: 100%;
+  height: 75rpx;
+  display: flex;   
+}
+
+.default{
+    line-height:75rpx;
+    text-align:center;
+    flex:1;
+    border-bottom:1px solid #eee;
+    color:#000;
+    font-weight:bold;
+    font-size:28rpx;  
+}
+.active{
+    line-height:75rpx;
+    text-align:center;
+    color:#7A67EE;
+    flex:1;
+    border-bottom:1px solid #7A67EE;
+    font-weight:bold;
+    font-size:28rpx;
+}
+.show{
+    display:block;
+    flex: 1;
+    height: 100%;
+}
+.hidden{
+    display:none;
+    flex: 1;
+}
+
+.addcomment {
+position: fixed;
+bottom: 0;
+width: 100%;
+}
+
+.search{
+  width: 80%;
+}
+.search_arr {
+  border: 1px solid #d0d0d0;
+  border-radius: 10rpx;
+  margin-left: 20rpx;
+}
+.search_arr input{
+  margin-left: 60rpx;
+  height: 60rpx;
+  border-radius: 5px;
+}
+.bc_text {
+  line-height: 68rpx;
+  height: 68rpx;
+  margin-top: 34rpx;
+}
+ 
+.sousuo {
+  margin-left: 15rpx;
+  width: 15%;
+  line-height: 150%;
+  text-align: center;
+  border: 1px solid #d0d0d0;
+  border-radius: 10rpx;
+}
+.page_row{
+  margin-top:10px; 
+  display: flex;
+  flex-direction: row
+}
+
+.image_item{
+  width: 30px;
+  height: 30px;
+}
+
+
+.swiper-box{ 
+    display: block; 
+    width: 100%; 
+    height: 100%; 
+    margin-top: 92rpx; 
+    overflow: hidden;
+}
+ .swiper-item{
+  height: 100%;
+}
+ .scroll-views{
+  height: 100%;
+}
+/* display: block; 
+    width: 100%; 
+    height: 100%; 
+    margin-top: 92rpx; 
+    overflow: hidden; */
