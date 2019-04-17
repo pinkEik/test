@@ -17,7 +17,6 @@ Page({
     showOrHiddenInfo: true,//场馆介绍 景区须知是否显示 和showOrHidden相对应
     goodArray: [
       { "title": "标题3", "src": "/images/img2.png", "name": "内容", "id": 23 },
-
       { "title": "brand", "src": '/images/img1.png', "name": "内容", "id": 3 },
       { "title": "ratio", "src": " /images/img2.png", "name": "内容", "id": 3 },
       { "title": "标题3", "src": "/images/img2.png", "name": "内容", "id": 13 },
@@ -29,10 +28,9 @@ Page({
   },
 
   
-
+// 跳转到立即预约界面
   onclick: function (res) {
     wx.navigateTo({
-
       url: '/pages/webview/webview?id=' + "list.index",
     })
   },
