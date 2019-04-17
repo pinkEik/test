@@ -68,7 +68,7 @@ Page({
         currentTab: e.target.dataset.current
       })
     }
-
+      // 设置显示隐藏
       if (e.target.dataset.current == 0) {
         that.setData({
           showOrHidden: false,
