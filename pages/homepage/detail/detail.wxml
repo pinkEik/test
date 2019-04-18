@@ -1,16 +1,11 @@
 <view class='layout_vertical'>
-<swiper indicator-dots="{{indicatorDots}}"
-  autoplay="true"  duration="200" indicator-dots="true" indicator-color="#cccccc" indicator-active-color="#0000ff">
-  <block wx:for="{{goodArray}}">
-    <swiper-item>
-      <image src="{{item.src}}" class="newsactionlauout" mode='aspectFill'/>
-    </swiper-item>
-  </block>
-</swiper>
+
+      <image src="{{splashImg}}" class="newsactionlauout" mode='aspectFill' binderror='loadimg' bindload='loadimg'/>
+   
 
 
 <view class='newsactionlauout'>
-  <text class='titlestyle'>{{title}}</text>
+  <text class='titlestyle'>{{mytitle}}</text>
 <button class='button_item' size='mini' bindtap='onclick'>立即预约</button>
 </view>
 

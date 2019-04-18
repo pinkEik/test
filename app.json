@@ -1,16 +1,39 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/logs/logs",
-    "pages/morepage/morepage",
-    "pages/detail/detail",
-    "pages/webview/webview",
-    "pages/search/search"
+  "pages":[
+    "pages/homepage/index/index",
+    "pages/homepage/logs/logs",
+    "pages/homepage/morepage/morepage",
+    "pages/homepage/detail/detail",
+    "pages/homepage/webview/webview",
+    "pages/homepage/search/search",
+    "pages/mine/mine/mine"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#46a3ff",
     "navigationBarTitleText": "哈哈哈",
     "navigationBarTextStyle": "black"
+  },
+
+  "tabBar": {
+        
+    "list":[
+      {
+        "selectedColor": "#46a3ff",
+        "color": "#fff",
+        "pagePath": "pages/homepage/index/index",
+        "iconPath": "images/Menu_Home_unselected.png",
+        "selectedIconPath": "images/Menu_Home_selected.png",
+        "text": "首页"
+      },
+      {
+        "selectedColor": "#46a3ff",
+        "color": "#fff",
+        "pagePath": "pages/mine/mine/mine",
+        "text": "我的",
+        "iconPath": "images/mine_unselected.png",
+        "selectedIconPath": "images/mine_selected.png"
+      }
+    ]
   }
 }

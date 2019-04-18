@@ -25,7 +25,7 @@
 
 <view class='newsactionlauout'>
 <text class='titlestyle'>最新活动</text>
-<navigator url='/pages/morepage/morepage'>
+<navigator url='/pages/homepage/morepage/morepage'>
 <text class="more">更多>></text></navigator>
 </view>
 
@@ -48,13 +48,13 @@
 <view class='case-page'>
   <view class='list-masonry'>
     <view class='item-masonry' wx:for="{{goodArray}}" bindtap='onclickItem'
-     data-name="{{item.artist_name}}" data-index="{{item.artist_id}}">
+     data-name="{{item.name}}" data-index="{{item.id}}">
 
       <view class='layout_item'>
-            <image src='{{item.album_500_500}}' mode='widthFix' class='img_listview' ></image>
+            <image src='{{item.venues_img}}' mode='widthFix' class='img_listview' ></image>
 <view class='layout_vertical'>
-      <text class='title_item'>{{item.author}}</text>
-        <text class='text_item'>{{item.title}}</text>
+      <text class='title_item'>{{item.name}}</text>
+        <text class='text_item'>{{item.name}}</text>
         </view>
 
         </view>

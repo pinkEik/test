@@ -11,7 +11,7 @@ Page({
     var list = res.currentTarget.dataset;
     console.log(list.index);
         wx.navigateTo({
-          url: '/pages/webview/webview?id=' + list.index,
+          url: '/pages/homepage/webview/webview?id=' + list.index,
         })
 
   },
@@ -21,7 +21,7 @@ Page({
     var lists = res.currentTarget.dataset;
     console.log(lists.name);
     wx.navigateTo({
-      url: '/pages/detail/detail?name=' + lists.name,
+      url: '/pages/homepage/detail/detail?name=' + lists.name+"&id="+lists.id,
     })
   },
  
@@ -30,7 +30,11 @@ Page({
   onLoad:function(){
     var that = this
     wx.request({
-      url: 'https://api.apiopen.top/getTangPoetry?count=20&page='+PAGE,
+      url: 'http://106.39.228.248/index.php/activity/activityList',
+      data:{
+        page: PAGE,
+        size:10
+      },
       headers: {
         'Content-Type': 'application/json'
       },
@@ -38,7 +42,7 @@ Page({
         console.log(res)
 
         that.setData({
-          mydata: res.data.result
+          mydata: res.data.data
         })
       }
     })
@@ -59,7 +63,11 @@ Page({
     PAGE = 1;
     console.log("当前页数：", PAGE)
     wx.request({
-      url: 'https://api.apiopen.top/musicRankingsDetails?type=' + PAGE,
+      url: 'http://106.39.228.248/index.php/activity/activityList',
+      data: {
+        page: PAGE,
+        size: 10
+      },
       method: "POST",
       // 请求头部
       header: {
@@ -70,7 +78,7 @@ Page({
 
         // 设置数据
         that.setData({
-          mydata: res.data.result
+          mydata: res.data.data
         })
 
         // 隐藏加载框
@@ -94,7 +102,11 @@ Page({
     PAGE = PAGE + 1;
     console.log("当前页数：", PAGE)
     wx.request({
-      url: 'https://api.apiopen.top/musicRankingsDetails?type=' + PAGE,
+      url: 'http://106.39.228.248/index.php/activity/activityList',
+      data: {
+        page: PAGE,
+        size: 10
+      },
       method: "POST",
       // 请求头部
       header: {
@@ -107,8 +119,8 @@ Page({
         var moment_list = that.data.mydata;
 
         if (res.data.result != null) {
-          for (var i = 0; i < res.data.result.length; i++) {
-            moment_list.push(res.data.result[i]);
+          for (var i = 0; i < res.data.data.length; i++) {
+            moment_list.push(res.data.data[i]);
           }
         } else {
          

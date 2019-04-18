@@ -6,33 +6,35 @@ Page({
    */
   data: {
     currentTab: 0,//tab默认选中第一个
-
-    title:"1",//详情页标题
+    id:'',//场馆id
+    mytitle:"",//详情页标题
     time:"",//开放时间
     address: "",//地址
     phone: "",//电话
+    splashImg: "",
     subscribeUrl: "",//立即预约 网址url
     swiperinfo:"",//tab 切换底部内容
     showOrHidden: false,//评论是否显示  false显示 true隐藏
     showOrHiddenInfo: true,//场馆介绍 景区须知是否显示 和showOrHidden相对应
     publishInfo:"",//发布框内容
-    goodArray: [
-      { "title": "标题3", "src": "/images/img2.png", "name": "内容", "id": 23 },
-      { "title": "brand", "src": '/images/img1.png', "name": "内容", "id": 3 },
-      { "title": "ratio", "src": " /images/img2.png", "name": "内容", "id": 3 },
-      { "title": "标题3", "src": "/images/img2.png", "name": "内容", "id": 13 },
-      { "title": "标题3", "src": "/images/img2.png", "name": "内容", "id": 31 },
 
-    ],
     tabArray: ["评论", "景区须知", "场馆介绍", "交通指南"]
 
+  },
+
+
+    //没有图片显示默认图片
+  loadimg:function(){
+    this.setData({
+      splashImg: '/images/banner.jpg'
+    })   
   },
 
   
 // 跳转到立即预约界面
   onclick: function (res) {
     wx.navigateTo({
-      url: '/pages/webview/webview?id=' + "list.index",
+      url: '/pages/homepage/webview/webview?id=' + "list.index",
     })
   },
 
@@ -125,34 +127,42 @@ Page({
   onLoad: function (option) {
     var that=this;
     console.log("接受的id:"+option.id)
-    this.setData({
+    console.log("接受的name:" + option.name)
+
+    that.setData({
        id :option.id,
+      mytitle: option.name,
+    })
+
+    //设置navigationtitle
+    wx.setNavigationBarTitle({
+      title: mytitle
     })
 
     //请求数据
     wx.request({
-      url: 'https://api.apiopen.top/musicRankingsDetails?type=1',
+      url: 'http://106.39.228.248/index.php/venues/venuesInfo',
+      data:{
+        id:id
+      },
       headers: {
         'Content-Type': 'application/json'
       },
       success: function (res) {
 
         that.setData({
-          title: res.data.message,
-        
-          time: res.data.message,
-          address: res.data.message,
-          phone: res.data.message,
-          subscribeUrl: res.data.message,
-          swiperinfo: res.data.message
-        
-          
+          title: res.data.data.name,
+          time: res.data.data.start_time + res.data.data.end_time,
+          address: res.data.data.address,
+          phone: res.data.fdata.phone,
+          subscribeUrl: res.data.data.booking_url,
+          splashImg: res.data.data.venues_img
         })
-
         //设置navigationtitle
         wx.setNavigationBarTitle({
-          title: res.data.message
+          title: res.data.data.name
         })
+       
       }
     })
 

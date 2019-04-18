@@ -36,14 +36,14 @@ Page({
   //跳转到搜索界面
   search:function(res){
       wx.navigateTo({
-        url: '/pages/search/search',
+        url: '/pages/homepage/search/search',
       })
   },
 
   //轮播图点击事件swipclick
   onclickswiper: function (e) {
     wx.navigateTo({
-      url: '/pages/detail/detail?id=' + e.currentTarget.id,
+      url: '/pages/homempae/detail/detail?id=' + e.currentTarget.id,
     })
   },
 
@@ -53,7 +53,7 @@ onclickItem:function(res){
   console.log("a", data.name)
   console.log("a", data.index)
   wx.navigateTo({
-    url: '/pages/detail/detail?name=' + data.name + '&id=' + data.index,
+    url:'/pages/homepage/detail/detail?name=' + data.name + '&id=' + data.index,
       })
   },
 
@@ -65,7 +65,12 @@ onclickItem:function(res){
 
     //场馆列表
     wx.request({
-      url: 'https://api.apiopen.top/musicRankingsDetails?type=1',
+      url: 'http://106.39.228.248/index.php/venues/venuesList',
+      data: {
+        page: pages,
+        size:10
+      },
+      method: "POST",
       headers: {
         'Content-Type': 'application/json'
       },
@@ -73,14 +78,19 @@ onclickItem:function(res){
         console.log(res)
         
         that.setData({
-          goodArray: res.data.result
+          goodArray: res.data.data
         })
       }
     }),
 
     //请求最新活动轮播图
       wx.request({
-        url: 'https://www.apiopen.top/journalismApi',
+      url: 'http://106.39.228.248/index.php/venues/venuesList',
+      data: {
+        page: pages,
+        size:10
+      },
+      method: "POST",
         headers: {
           'Content-Type': 'application/json'
         },
@@ -99,7 +109,12 @@ onclickItem:function(res){
 //加载轮播图数据
   requestActivity:function(){
     wx.request({
-      url: 'https://www.apiopen.top/journalismApi',
+      url: 'http://106.39.228.248/index.php/venues/venuesList',
+      data: {
+        page: pages,
+        size:10
+      },
+      method: "POST",
       headers: {
         'Content-Type': 'application/json'
       },
@@ -125,7 +140,11 @@ onclickItem:function(res){
      console.log("a",pages )
 
     wx.request({
-      url: 'https://api.apiopen.top/musicRankingsDetails?type=' +pages,
+      url: 'http://106.39.228.248/index.php/venues/venuesList',
+      data:{
+          page:pages,
+          size:10
+      },
       method: "POST",
       // 请求头部
       header: {
@@ -163,7 +182,7 @@ onclickItem:function(res){
         wx.hideLoading();
       }
     })
-
+    //http://106.39.228.248/index.php/venues/venuesList
   },
 
 })
