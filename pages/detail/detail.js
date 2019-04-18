@@ -101,6 +101,10 @@ Page({
     wx.request({
 
       url: 'https://api.apiopen.top/musicRanki=1'+this.data.publishInfo+'&user_id='+"1",
+      method: "POST",
+      data: {
+        teacherid: teacherid
+      },
       headers: {
         'Content-Type': 'application/json'
       },

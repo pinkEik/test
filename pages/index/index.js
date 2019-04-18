@@ -74,8 +74,6 @@ onclickItem:function(res){
         
         that.setData({
           goodArray: res.data.result
-
-          //res代表success函数的事件对，data是固定的，list是数组
         })
       }
     }),
@@ -147,12 +145,14 @@ onclickItem:function(res){
           moment_list.push(res.data.result[i]);
         }
       }else{
-          // 隐藏加载框
-          wx.hideLoading();
+     
           wx.showToast({
             title: '没内容了',
           })
       }
+     // 隐藏加载框
+        wx.hideLoading();
+
         
         // 设置数据
         that.setData({
