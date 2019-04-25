@@ -1,12 +1,14 @@
 {
-  "pages":[
+  "pages": [
     "pages/homepage/index/index",
     "pages/homepage/logs/logs",
     "pages/homepage/morepage/morepage",
     "pages/homepage/detail/detail",
     "pages/homepage/webview/webview",
     "pages/homepage/search/search",
-    "pages/mine/mine/mine"
+    "pages/homepage/actDetails/actDetails",
+    "pages/mine/mine/mine",
+    "pages/mine/changeinfo/changeinfo"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -14,10 +16,8 @@
     "navigationBarTitleText": "哈哈哈",
     "navigationBarTextStyle": "black"
   },
-
   "tabBar": {
-        
-    "list":[
+    "list": [
       {
         "selectedColor": "#46a3ff",
         "color": "#fff",
@@ -35,5 +35,6 @@
         "selectedIconPath": "images/mine_selected.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

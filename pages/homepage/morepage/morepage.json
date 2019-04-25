@@ -4,5 +4,11 @@
   "navigationBarTitleText": "所有活动",
   "backgroundColor": "#00ffff",
   "backgroundTextStyle": "light",
-  "enablePullDownRefresh": true
+  "enablePullDownRefresh": true,
+
+  "usingComponents": {
+    "imageloader": "/componet/imageloader/imageloader"
+  }
+
+
 }

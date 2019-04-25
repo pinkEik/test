@@ -6,7 +6,9 @@
 "backgroundTextStyle": "light",
 
 "usingComponents": {
-  "Select": "/componet/select/select"
+  "Select": "/componet/select/select",
+ "imageloader": "/componet/imageloader/imageloader"
+
 }
 }
  

@@ -1,15 +1,16 @@
 <view class="show"  wx:for="{{mydata}}">
 
-<view class='layout_horizontal' bindtap='onclickdetail'  data-name='{{item.title}}'> 
+<view class='layout_horizontal' bindtap='onclickdetail'  data-name='{{item.title}}' data-id='{{item.id}}'> 
 
-<!-- 这里是图片因为接口没图片 注释掉    src="{{item.src}}"-->
-  <image class='image_item' src="/images/img3.png" > </image>
+    <imageloader default-image='/images/banner.jpg' mode='widthFix' original-image='{{item.activity_img}}' 
+    width="250rpx" height="180rpx"
+    ></imageloader>
 
   <view class='layout_vertical'  >
     <text class='title_item' >{{item.activity_title}}</text>
     <text class='text_item'>{{item.activity_msg}}</text>
 
-    <button class='button_item' size='mini' catchtap='onclick' data-index='{{item.id}}'>立即预约</button>
+    <!-- <button class='button_item' size='mini' catchtap='onclick' data-index='{{item.id}}'>立即预约</button> -->
   </view>
   </view>
   

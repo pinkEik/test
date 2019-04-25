@@ -1,41 +1,39 @@
+<!-- url换成网络图片 -->
+<view class='banner' style="background-image: url('http://www.sucaitianxia.net/sheji/pic/200707/20070723160945961.jpg');background-size: cover">
 
-
-      <!-- url换成网络图片 -->
-<view class='banner' style="background-image: url('/images/banner.jpg');background-size: cover">
-
-<!-- 选择城市 搜索框 -->
-<view class='layout_horizontal'>
-<Select prop-array='{{selectData}}'></Select>
-      <view class='page_row' bindtap="search">
-          <view class="search">
-            <view class="search_arr">
-              <icon class="searchcion" size='20' type='search'></icon>
-              <input class="" disabled placeholder="请输入关键字" />
-            </view>
-          </view>
-       
+  <!-- 选择城市 搜索框 -->
+  <view class='layout_horizontal'>
+    <Select prop-array='{{selectData}}'></Select>
+    <view class='page_row' bindtap="search">
+      <view class="search">
+        <view class="search_arr">
+          <icon class="searchcion" size='20' type='search'></icon>
+          <input class="" disabled placeholder="请输入关键字" />
         </view>
+      </view>
+
+    </view>
 
 
-</view>
+  </view>
 
 </view>
 
 
 
 <view class='newsactionlauout'>
-<text class='titlestyle'>最新活动</text>
-<navigator url='/pages/homepage/morepage/morepage'>
-<text class="more">更多>></text></navigator>
+  <text class='titlestyle'>最新活动</text>
+  <navigator url='/pages/homepage/morepage/morepage'>
+    <text class="more">更多>></text>
+  </navigator>
 </view>
 
 
 <!-- 最新活动图片 -->
-<swiper indicator-dots="{{indicatorDots}}"
-  autoplay="true" interval='4000' duration="500">
-  <block wx:for="{{activityImg}}" >
+<swiper indicator-dots="{{indicatorDots}}" autoplay="true" interval='4000' duration="500">
+  <block wx:for="{{activityImg}}">
     <swiper-item>
-      <image src="{{item.picInfo[0].url}}" class="slide-image"  mode="aspectFill"  bindtap='onclickswiper' id="{{item.docid}}"/>
+      <image src="{{item.picInfo[0].url}}" class="slide-image" mode="aspectFill" bindtap='onclickswiper' id="{{item.docid}}" />
     </swiper-item>
   </block>
 </swiper>
@@ -47,17 +45,19 @@
 
 <view class='case-page'>
   <view class='list-masonry'>
-    <view class='item-masonry' wx:for="{{goodArray}}" bindtap='onclickItem'
-     data-name="{{item.name}}" data-index="{{item.id}}">
+    <view class='item-masonry' wx:for="{{goodArray}}" bindtap='onclickItem' data-name="{{item.name}}" data-index="{{item.id}}" binderror="errorFunction" wx:for-index='index'>
 
       <view class='layout_item'>
-            <image src='{{item.venues_img}}' mode='widthFix' class='img_listview' ></image>
-<view class='layout_vertical'>
-      <text class='title_item'>{{item.name}}</text>
-        <text class='text_item'>{{item.name}}</text>
+        <!-- <imageloader default-image='/images/banner.jpg' mode='widthFix' original-image='{{item.venues_img}}' 
+      /> -->
+
+        <image src='{{item.venues_img}}' mode='widthFix' class='img_listview'></image>
+        <view class='layout_vertical'>
+          <text class='title_item'>{{item.name}}</text>
+          <text class='text_item'>{{item.name}}</text>
         </view>
 
-        </view>
+      </view>
 
 
     </view>

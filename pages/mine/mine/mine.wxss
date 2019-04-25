@@ -1,1 +1,66 @@
-/* pages/mine/mine.wxss */
+.iconbg {
+  width: 100%;
+  height: 180px;
+}
+
+.myiconbg {
+  width: 100%;
+  height: 100%;
+}
+
+.myicon {
+  
+    margin: 20px; 
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
+ 
+ 
+}
+
+.usernamestyle{
+margin-left: 20px;
+font-size: 20px;
+
+}
+
+
+.layout_horizontal {
+  display: flex;
+  /*row 横向  column 列表  */
+  flex-direction: row;
+}
+
+/*纵向布局  */
+
+.layout_vertical {
+  display: flex;
+  /*row 横向  column 列表  */
+  flex-direction: column;
+  padding: 10px;
+}
+
+.item{
+  border-radius: 5px;
+  margin: 10px 10px 10px 10px;
+  display: flex;
+  /*row 横向  column 列表  */
+  flex-direction: row;
+  background: #ffffff
+}
+
+.itembg{
+  width: 100%;
+  height: 100%;
+  background: #efefef;
+  position: fixed;
+}
+.imagestyle{
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+}
+.textstyle{
+    margin: 10px;
+
+}

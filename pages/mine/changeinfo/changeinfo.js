@@ -1,4 +1,4 @@
-// page/homepage/detail/detail.js
+// pages/mine/changeinfo/changeinfo.js
 Page({
 
   /**

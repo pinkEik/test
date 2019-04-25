@@ -4,6 +4,7 @@ Page({
 
   data: {
     newsUrl: "",
+    title:"",
   },
 
   /**
@@ -14,16 +15,18 @@ Page({
     var that = this;
 
     var url=that.options.id;
+
     console.log(url)
 
 //加载webview 设置webview路径
   this.setData({
-  newsUrl:"https://www.baidu.com/"
+  newsUrl:that.options.id,
+    title: that.options.title
   })
   
   //动态加载标题
    wx.setNavigationBarTitle({
-      title: url,
+     title: this.data.title,
     })
   },
 

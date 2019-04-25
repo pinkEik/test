@@ -1,0 +1,32 @@
+.before-load {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  border-top-left-radius: 5px;
+border-top-right-radius: 5px;
+}
+
+.default {
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  
+}
+
+.finishLoadFlag{
+    display:flex;
+ justify-content: center;
+
+align-items:center;
+/* width: 100%;
+height: 100%; */
+width: 10px;
+height: 10px;
+border-top-left-radius: 5px;
+border-top-right-radius: 5px;
+
+}

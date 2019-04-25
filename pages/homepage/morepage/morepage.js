@@ -4,24 +4,28 @@ var PAGE=1;
 Page({
   data: {
     mydata: [],
+    totalPage: 0,
+    nowPage: 0,
   },
 
-  //立即预约
-  onclick:function(res){
-    var list = res.currentTarget.dataset;
-    console.log(list.index);
-        wx.navigateTo({
-          url: '/pages/homepage/webview/webview?id=' + list.index,
-        })
+  // //立即预约
+  // onclick:function(res){
+  //   var list = res.currentTarget.dataset;
+  //   console.log(list.index);
+  //       wx.navigateTo({
+  //         url: '/pages/homepage/webview/webview?id=' + list.index,
+  //       })
 
-  },
+  // },
+
+ 
 
   //查看详情
   onclickdetail:function(res){
     var lists = res.currentTarget.dataset;
-    console.log(lists.name);
+    
     wx.navigateTo({
-      url: '/pages/homepage/detail/detail?name=' + lists.name+"&id="+lists.id,
+      url: "/pages/homepage/actDetails/actDetails?id="+lists.id,
     })
   },
  
@@ -42,7 +46,9 @@ Page({
         console.log(res)
 
         that.setData({
-          mydata: res.data.data
+          mydata: res.data.data,
+          totalPage: res.data.page.total_page,
+          nowPage: res.data.page.page_num
         })
       }
     })
@@ -97,7 +103,13 @@ Page({
     wx.showLoading({
       title: '玩命加载中',
     })
+    if (this.data.totalPage == this.data.nowPage) {
+      wx.showToast({
 
+        title: '到底了',
+      })
+      return;
+    }
     // 页数+1
     PAGE = PAGE + 1;
     console.log("当前页数：", PAGE)

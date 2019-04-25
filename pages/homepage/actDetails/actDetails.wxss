@@ -1,0 +1,30 @@
+.act_warp{
+  padding: 15rpx;
+}
+.newsactionlauout{
+   display: flex;
+   flex-direction: row;
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.button_item{
+ margin: 10px;
+  font-size: 15px;
+  padding: 10px;
+  color: white;
+  background: rgb(3, 173, 252);
+}
+.act_title{
+  text-align: center;
+}
+.start_time,.end_time,.join,.detail_title{
+  font-size: 30rpx;
+}
+.detail_mag{
+  font-size: 28rpx;
+}
+
+
+

@@ -1,0 +1,15 @@
+<view class="act_warp">
+  <view class='act_title'>{{activity_title}}</view>
+  <view class='start_time'>时间：{{time}}</view>
+  <view class='join'>参与方式：{{join_way}}</view>
+  <view class='act_detail'>
+    <view class='detail_title'>活动详情：</view>
+    <view class='detail_mag'>{{activity_msg}}</view>
+  </view>
+
+
+
+  <view class='newsactionlauout'>
+    <button class='button_item' size='mini' bindtap='onclick'>立即预约</button>
+  </view>
+</view>

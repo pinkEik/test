@@ -1,2 +1,30 @@
-<!--pages/mine/mine.wxml-->
-<text>pages/mine/mine.wxml</text>
+<view class='iconbg'  style="background-image: url('http://www.sucaitianxia.net/sheji/pic/200707/20070723160945961.jpg');background-size: cover">
+
+
+
+  
+      <view class='layout_vertical'>
+          <image class='myicon'  src='{{userInfo.avatarUrl}}' bindtap='onclickchangeinfo'></image>
+          <text class='usernamestyle' bindtap='onclickchangeinfo'>{{userInfo.nickName}}</text>
+      </view>
+
+  </view>
+
+
+<view class='itembg'>   
+
+
+  <view class='item' bindtap='onclickmyfav'>
+  <image src='/images/favorites.png'  class="imagestyle"></image>
+  <text class="textstyle">我的收藏</text>
+  </view>
+  
+  
+  <view class='item' bindtap='onclickhis'>
+  <image src='/images/history.png' class="imagestyle"></image>
+  <text class='textstyle'>阅读历史</text>
+  </view>
+
+
+ </view>
+
