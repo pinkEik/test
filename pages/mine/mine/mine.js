@@ -10,6 +10,8 @@ Page({
     myiconurl:"/images/header.png",
  
      isLogin:false,
+	      ss:false,
+
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
