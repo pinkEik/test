@@ -6,11 +6,16 @@ Page({
   data: {
     totalPage:0,
     nowPage: 0,
-
     selectShow: false, //控制下拉列表的显示隐藏，false隐藏、true显示
     index: 0, //选择的下拉列表下标
     goodArray: "",
     activityImg: "",
+    newactobj:[
+      { 'title': '创客大赛2019', 'id': "1","pic_big":'../../../images/img1.png'},
+      { 'title': '创客大赛2019', 'id': "2", "pic_big": '../../../images/img2.png' },
+      { 'title': '创客大赛2019', 'id': "4", "pic_big": '../../../images/img3.png' }
+
+    ],
     //下拉列表数据
     selectData: [{
         "id": "0",
