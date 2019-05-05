@@ -32,7 +32,6 @@
 .com-sList{
     background: white;
     width: inherit;
-    position: absolute;
     margin-left: 10px;
     border-top: none;
     box-sizing: border-box;
