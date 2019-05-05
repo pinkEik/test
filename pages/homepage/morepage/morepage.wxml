@@ -1,19 +1,19 @@
-<view class="show"  wx:for="{{mydata}}">
-
-<view class='layout_horizontal' bindtap='onclickdetail'  data-name='{{item.title}}' data-id='{{item.id}}'> 
-
-    <imageloader default-image='/images/banner.jpg' mode='widthFix' original-image='{{item.activity_img}}' 
-    width="250rpx" height="180rpx"
-    ></imageloader>
-
-  <view class='layout_vertical'  >
-    <text class='title_item' >{{item.activity_title}}</text>
-    <text class='text_item'>{{item.activity_msg}}</text>
-
-    <!-- <button class='button_item' size='mini' catchtap='onclick' data-index='{{item.id}}'>立即预约</button> -->
-  </view>
-  </view>
-  
-
-
+<!--  活动列表页  -->
+<!--  s:全局  -->
+<view class="list-layout">
+	<!--  s:list  -->
+		<view class="Actlist" wx:for="{{mydata}}" bindtap='onclickdetail'  data-name='{{item.title}}' data-id='{{item.id}}'>
+		<!--  list-img  -->
+			<imageloader default-image='/images/banner.jpg' mode='widthFix' original-image='{{item.activity_img}}' 
+			width="250rpx" height="180rpx"
+			></imageloader>
+		<!--  list-img  -->
+			<view class='list_info'>
+				<text class='list_title row_line' >{{item.activity_title}}</text>
+				<text class='list_det row_line'>{{item.activity_msg}}</text>
+				<!-- <button class='button_item' size='mini' catchtap='onclick' data-index='{{item.id}}'>立即预约</button> -->
+			</view>
+		</view>
+	<!--  e:list  -->
 </view>
+<!--  e:全局  -->

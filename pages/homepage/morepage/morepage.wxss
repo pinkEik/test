@@ -1,68 +1,50 @@
-.show {
-  padding: 10px;
-  width: 100%;
-  height: auto;
-}
+/* 活动列表页 css*/
 
-/* 标题样式 */
-.title_item {
-  font-size: 30rpx;
-}
-
-/* 文字样式 */
-.text_item {
-  font-size: 22rpx;
+/*style*/
+  /*行数限制*/
+.row_line{
   text-overflow: -o-ellipsis-lastline;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 2;/*默认两行*/
   -webkit-box-orient: vertical;
   align-content: center;
-
 }
-
-
-/* 预约按钮样式 */
-
-.button_item {
-    margin-right: 20px;
-  background: #CD9B1D;
-  color: white;
-   display: flex;
-   margin-top: 10px;
-  justify-content: flex-center;
-    align-items: flex-end;
+/**/
+.list-layout{
+  height:auto;
+  padding:15rpx;
+  font-size:22rpx;
 }
-
-/*横向布局  */
-
-.layout_horizontal {
+/* 列表 */
+.Actlist{
   display: flex;
   /*row 横向  column 列表  */
   flex-direction: row;
- 
+  padding:15rpx 0;
+  line-height:1.5;
 }
-
-/*纵向布局  */
-
-.layout_vertical {
+/* list_info */
+.list_info{
   display: flex;
   /*row 横向  column 列表  */
   flex-direction: column;
-  padding: 10px;
-  width: 100%;
+  padding-left:15rpx;
 }
 
-/*划线  */
-
-.line {
-  background-color: blue;
-  height: 2rpx;
-  width: 100%;
+/* 标题样式 */
+.list_title {
+  font-size: 28rpx;
+  -webkit-line-clamp: 1;
 }
-
-.image_item {
-  width: 150px;
-  height: 100px;
+/* 预约按钮样式 */
+.button_item {
+  margin-right: 20px;
+  background: #CD9B1D;
+  color: white;
+  display: flex;
+  margin-top: 10px;
+  justify-content: flex-center;
+  align-items: flex-end;
 }
