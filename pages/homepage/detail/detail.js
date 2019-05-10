@@ -1,4 +1,11 @@
 // pages/detail/detail.js
+
+// pages/contact-us/contact-us.js
+// 引入SDK核心类
+var QQMapWX = require('../../../js/qqmap-wx-jssdk.js');
+var demo = new QQMapWX({
+  key: "M4LBZ-VXULX-FSY4V-ZMSQY-SQZX3-JJFMG"
+});
 Page({
 
   /**
@@ -20,7 +27,13 @@ Page({
     arrayTabInfo: [], //底部tab内容
     commentsList: "", //评论列表
 
-    tabArray: ["评论", "景区须知", "场馆介绍", "交通指南"]
+    tabArray: ["评论", "景区须知", "场馆介绍", "交通指南"],
+    //地图
+    showModal: false,
+    gd: true,
+    xn: false,
+    hd: false,
+    xb: false
 
   },
 
@@ -210,7 +223,7 @@ Page({
 
     //请求评论接口
     wx.request({
-      url: '    http://106.39.228.248/index.php/comments/commentsList',
+      url: 'http://106.39.228.248/index.php/comments/commentsList',
       data: {
         page: 0,
         size: 10,
@@ -246,6 +259,85 @@ Page({
     wx.navigateTo({
       url: '/pages/homepage/webview/webview?id=' + this.data.subscribeUrl + "&title=" + this.data.mytitle,
     })
+  },
+
+  //地图
+  seeMap: function () {
+    // 调用接口
+    // demo.reverseGeocoder({
+    //   location: {
+    //     latitude: 39.984060,
+    //     longitude: 116.307520
+    //   },
+    //   success: function (res) {
+    //     console.log(res);
+    //   },
+    //   fail: function (res) {
+    //     console.log(res);
+    //   },
+    //   complete: function (res) {
+    //     console.log(res);
+    //   }
+    // });
+    //地址解析(地址转坐标)     
+
+    demo.geocoder({
+      address: '北京市朝阳区育慧里4号',
+      success: function (res) {
+        //console.log(res.result.location.lng);
+        var latitude = res.result.location.lat
+        var longitude = res.result.location.lng
+        wx.openLocation({
+          latitude: latitude,
+          longitude: longitude,
+          scale: 28
+        })
+
+      },
+      fail: function (res) {
+        // console.log(res);
+      },
+      complete: function (res) {
+        // console.log(res);
+      }
+    });
+  },
+  preventTouchMove: function () {
+  },
+  go: function () {
+    this.setData({
+      showModal: false
+    })
+  },
+  /**
+   * 弹出层函数 结束
+   */
+  onToggle(e) {
+    let idId = e.currentTarget.dataset.id;
+    switch (idId) {
+      case 'gd':
+        this.setData({
+          gd: this.data.gd ? false : true
+        })
+        break;
+      case 'xn':
+        this.setData({
+          xn: this.data.xn ? false : true
+        })
+        break;
+      case 'hd':
+        this.setData({
+          hd: this.data.hd ? false : true
+        })
+        break;
+      case 'xb':
+        this.setData({
+          xb: this.data.xb ? false : true
+        })
+        break;
+    }
   }
+
+
 
 })
