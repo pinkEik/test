@@ -56,4 +56,8 @@
     </view>
     <!--  e:list -->
 </view>
+
+    <view  style="background:url('/images/map.png')">
+          <image class="mine" bindtap='mine' ></image>
+    </view>
 <!--  e:Venue_lists -->

@@ -5,7 +5,7 @@
   font-size:22rpx;
 }
 /* 场馆图片*/
-.ven_img img{
+.ven_img{
    width: 100%;
    height: 120px;
 }

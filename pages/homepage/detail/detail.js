@@ -279,10 +279,11 @@ Page({
     //     console.log(res);
     //   }
     // });
-    //地址解析(地址转坐标)     
 
+
+    //地址解析(地址转坐标)     
     demo.geocoder({
-      address: '北京市朝阳区育慧里4号',
+      address: this.data.address,
       success: function (res) {
         //console.log(res.result.location.lng);
         var latitude = res.result.location.lat
@@ -290,12 +291,36 @@ Page({
         wx.openLocation({
           latitude: latitude,
           longitude: longitude,
-          scale: 28
+          scale: 28,
+        })
+
+        this.setData({
+          markers: [{
+            id: 0,
+            title: res.title,
+            latitude: latitude,
+            longitude: longitude,
+            iconPath: '/images/map.png',//图标路径
+            width: 20,
+            height: 20,
+            callout: { //可根据需求是否展示经纬度
+              content: latitude + ',' + longitude,
+              color: '#000',
+              display: 'ALWAYS'
+            }
+          }],
         })
 
       },
       fail: function (res) {
         // console.log(res);
+        wx.showToast({
+          title: '加载失败',
+        }),
+        
+        //返回上一级
+        wx.navigateBack({
+        })
       },
       complete: function (res) {
         // console.log(res);

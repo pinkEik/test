@@ -219,3 +219,19 @@ page{
   align-content: center;
 
 }
+
+.mine{
+  color: #ffffff;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 20rpx;
+  right: 20rpx;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  font-size: 28rpx;
+  background: #4EEE94;
+
+}

@@ -3,7 +3,7 @@
 <view class="Venue_layout">
   <!--  场馆图片 -->
   <view class="ven_img">
-    <image src="{{splashImg}}" class="venuesImgBg" mode='aspectFill' binderror='loadimg' bindload='loadimg'/>
+    <image src="{{splashImg}}" class="ven_img" mode='aspectFill' binderror='loadimg' bindload='loadimg'/>
   </view>
   <!--  s:场馆信息 -->
   <view class="ven_Notice">

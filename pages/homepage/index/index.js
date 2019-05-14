@@ -5,7 +5,7 @@ var pages = 0;
 Page({
   data: {
     totalPage:0,
-    nowPage: 0,
+    nowPage: 1,
     selectShow: false, //控制下拉列表的显示隐藏，false隐藏、true显示
     index: 0, //选择的下拉列表下标
     goodArray: "",
@@ -61,6 +61,11 @@ Page({
     })
   },
 
+  mine:function(res){
+    wx.navigateTo({
+      url: '/pages/mine/mine/mine',
+    })
+  },
   //场馆点击事件处理
   onclickItem: function(res) {
     var data = res.currentTarget.dataset;
@@ -97,25 +102,7 @@ Page({
         }
       })
 
-      // //请求最新活动轮播图
-      // wx.request({
-      //   url: 'http://106.39.228.248/index.php/venues/venuesList',
-      //   data: {
-      //     page: pages,
-      //     size: 10
-      //   },
-      //   method: "POST",
-      //   headers: {
-      //     'Content-Type': 'application/json'
-      //   },
-      //   success: function(res) {
-      //     console.log(res)
-
-      //     that.setData({
-      //       activityImg: res.data.data.venues_img
-      //    })
-      //   }
-      // })
+  
   },
 
 
@@ -130,14 +117,13 @@ Page({
 
     if (this.data.totalPage == this.data.nowPage){
       wx.showToast({
-     
         title: '到底了',
       })
       return ;
     }
     // 页数+1
     pages = pages + 1;
-    console.log("a", pages)
+
     wx.request({
       url: 'http://106.39.228.248/index.php/venues/venuesList',
       //请求参数
@@ -148,25 +134,29 @@ Page({
       method: "POST",
       // 请求头部
       header: {
-        "Content-Type": "application/x-www-form-urlencoded"
+        // 'content-type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/json'
+
       },
+      
+
       success: function(res) {
+        
+
         if(res.data.data.length==0){
           wx.showToast({
             title: '没内容了',
           })
           return ;
         }
-          console.log("b" + res.data.data)
           // 回调函数
-          var moment_list = this.data.goodArray;
-        console.log("bqqqqqqqqqqqq")
+          var moment_list = that.data.goodArray;
 
           if (res.data.data.length>0){
           for (var i = 0; i < res.data.data.length; i++) {
             moment_list.push(res.data.data[i]);
           }
-        }else{
+         }else{
             wx.showToast({
               title: '没内容了',
             })
@@ -175,7 +165,7 @@ Page({
           that.setData({
             goodArray: moment_list
           })
-        // // 隐藏加载框
+        // 隐藏加载框
         wx.hideLoading();
       },fail:function(e){
         wx.showToast({
