@@ -108,24 +108,33 @@ Page({
 
 
   //加载更多数据
-  onReachBottom: function(e) {
+  onReachBottom: function (e) {
     var that = this;
     // 显示加载图标
     wx.showLoading({
       title: '玩命加载中',
     })
 
-    if (this.data.totalPage == this.data.nowPage){
+    console.log("a", this.data.totalPage + "=========" + this.data.nowPage)
+
+    //判断是否为最后一页
+    if (this.data.totalPage == this.data.nowPage) {
       wx.showToast({
         title: '到底了',
       })
-      return ;
+      return;
     }
-    // 页数+1
-    pages = pages + 1;
+
+    if (that.data.totalPage > pages) {
+      // 页数+1
+      pages = pages + 1;
+    }
+
+    console.log("当前页面", pages)
 
     wx.request({
       url: 'http://106.39.228.248/index.php/venues/venuesList',
+
       //请求参数
       data: {
         page: pages,
@@ -134,40 +143,40 @@ Page({
       method: "POST",
       // 请求头部
       header: {
-        // 'content-type': 'application/x-www-form-urlencoded'
-        'Content-Type': 'application/json'
-
+        "Content-Type": "application/x-www-form-urlencoded"
       },
-      
+      success: function (res) {
 
-      success: function(res) {
-        
+        console.log("转化为" + res)
+        console.log("集合长度：" + res.data.data.length)
 
-        if(res.data.data.length==0){
+        console.log("当前页面长度：" + res.data.page.page_num
+        )
+        if (res.data.data.length == 0) {
           wx.showToast({
             title: '没内容了',
           })
-          return ;
+          return;
         }
-          // 回调函数
-          var moment_list = that.data.goodArray;
+        // 回调函数
+        var moment_list = that.data.goodArray;
 
-          if (res.data.data.length>0){
+        if (res.data.data.length > 0) {
           for (var i = 0; i < res.data.data.length; i++) {
             moment_list.push(res.data.data[i]);
           }
-         }else{
-            wx.showToast({
-              title: '没内容了',
-            })
-        }
-          // 设置数据
-          that.setData({
-            goodArray: moment_list
+        } else {
+          wx.showToast({
+            title: '没内容了',
           })
+        }
+        // 设置数据
+        that.setData({
+          goodArray: moment_list
+        })
         // 隐藏加载框
         wx.hideLoading();
-      },fail:function(e){
+      }, fail: function (e) {
         wx.showToast({
           title: '请求失败',
         })

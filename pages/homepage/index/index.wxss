@@ -71,12 +71,27 @@ page{
 .list-masonry{
     column-count: 2;
     column-gap: 20rpx;
+    overflow: hidden;
 }
-.item-masonry{
+/*.item-masonry{
     background-color: #fff;
     margin: 15rpx 0;
     box-sizing: border-box;
     padding: 15rpx;
+}*/
+.item-masonry{
+background: #fff;
+/*width: 320rpx;*/
+display: inline-block; /*内部卡片需要设置为inline-block,否则会截断显示，如图一*/
+justify-content: center;
+flex-direction: column;
+align-items: center;
+box-sizing: border-box;
+margin: 15rpx 0;
+width: 100%
+}
+.layout_item{
+  padding: 15rpx;
 }
 .item-masonry image {
   max-width: 100%;
