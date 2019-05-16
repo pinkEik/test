@@ -57,7 +57,7 @@
     <!--  e:list -->
 </view>
 
-    <view  style="background:url('/images/map.png')">
+    <view  style="background:url('/images/map.png');display:none">
           <image class="mine" bindtap='mine' ></image>
     </view>
 <!--  e:Venue_lists -->

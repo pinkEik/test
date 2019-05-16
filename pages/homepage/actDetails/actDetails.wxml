@@ -8,8 +8,9 @@
   </view>
 
 
-
+<!--
   <view class='newsactionlauout'>
     <button class='button_item' size='mini' bindtap='onclick'>立即预约</button>
   </view>
+-->
 </view>

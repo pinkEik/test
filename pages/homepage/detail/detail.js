@@ -182,7 +182,7 @@ Page({
     wx.setNavigationBarTitle({
       title: option.name
     })
-
+//wangxialadia
     //请求数据
     wx.request({
       url: 'http://106.39.228.248/index.php/venues/venuesInfo',
@@ -235,15 +235,12 @@ Page({
         "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function(res) {
-        console.log(res)
+        console.log("评论接口数据："+res)
 
         that.setData({
           commentsList: res.data.data
 
         })
-
-
-
       }
     })
 
