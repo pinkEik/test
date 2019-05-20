@@ -144,15 +144,16 @@ Page({
       url: 'http://106.39.228.248/index.php/comments/addComments',
       data: {
         venues_id: this.data.myid,
-        user_id: 1,
+       /* user_id: 1,*/
         msg: this.data.publishInfo
       },
       method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
+     
+      header: { "Content-Type": "application/x-www-form-urlencoded" },
+      
       success: function(res) {
         console.log("====返回码" + res.data.code)
+        console.log("啊啊啊啊", res)
         wx.showToast({
           title: '发送成功',
         })

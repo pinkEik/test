@@ -41,7 +41,7 @@ style="height:{{winHeight - 31}}px" >
 <swiper-item wx:for="{{tabArray}}" wx:for-index="idx" wx:for-item="itemName" class="swiper-item">
 <scroll-view scroll-y="true" scroll-x="false" class='about_cont' lower-threshold="150" >
 <view class='swiper-item' hidden='{{showOrHiddenInfo}}'>{{swiperinfo}}</view> 
-  <!-- 展示评论 
+  <!-- 展示评论 -->
   <view class="show comment_tab"  wx:for="{{commentsList}}"  hidden='{{showOrHidden}}'>
     <view class='comment_list'> 
         <image class='image_item'   src="{{item.head_portrait}}"></image>
@@ -50,7 +50,7 @@ style="height:{{winHeight - 31}}px" >
             <text class='comm_info_mg'>{{item.comments_msg}}</text>
         </view>
     </view>
-  </view >-->
+  </view >
 </scroll-view>
     <!-- 添加评论按钮输入框 -->
    
