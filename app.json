@@ -3,7 +3,7 @@
 
 
     "pages/homepage/index/index",
-     "pages/homepage/ceshi/ceshi",
+    "pages/homepage/ceshi/ceshi",
     "pages/homepage/logs/logs",
     "pages/homepage/morepage/morepage",
     "pages/homepage/detail/detail",
