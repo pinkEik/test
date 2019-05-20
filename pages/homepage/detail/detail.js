@@ -152,7 +152,7 @@ Page({
         'Content-Type': 'application/json'
       },
       success: function(res) {
-        console.log("====" + res.data.message)
+        console.log("====返回码" + res.data.code)
         wx.showToast({
           title: '发送成功',
         })
