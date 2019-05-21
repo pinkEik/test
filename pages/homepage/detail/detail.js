@@ -26,7 +26,8 @@ Page({
     publishInfo: "", //发布框内容
     arrayTabInfo: [], //底部tab内容
     commentsList: "", //评论列表
-
+    commentTotalPage: 0,
+    commentNowPage: 0,
     tabArray: ["评论", "景区须知", "场馆介绍", "交通指南"],
     //地图
     showModal: false,
@@ -37,13 +38,6 @@ Page({
 
   },
 
-
-  //没有图片显示默认图片
-  // loadimg: function() {
-  //   this.setData({
-  //     splashImg: '/images/banner.jpg'
-  //   })
-  // },
 
 
   
@@ -143,18 +137,23 @@ Page({
 
       url: 'http://106.39.228.248/index.php/comments/addComments',
       data: {
+        
         venues_id: this.data.myid,
-       /* user_id: 1,*/
+
+        // user_id: 23423423,
         msg: this.data.publishInfo
       },
       method: "POST",
-     
-      header: { "Content-Type": "application/x-www-form-urlencoded" },
-      
+      headers: {
+        // 'Content-Type': 'application/json'
+        // "Content-Type": "application/x-www-form-urlencoded"
+
+      },
       success: function(res) {
-        console.log("====返回码" + res.data.code)
-        console.log("啊啊啊啊", res)
+        console.log("====" ,res)
+
         wx.showToast({
+          
           title: '发送成功',
         })
       },
@@ -183,7 +182,6 @@ Page({
     wx.setNavigationBarTitle({
       title: option.name
     })
-//wangxialadia
     //请求数据
     wx.request({
       url: 'http://106.39.228.248/index.php/venues/venuesInfo',
@@ -209,14 +207,9 @@ Page({
             res.data.data[0].venues_describe,
             res.data.data[0].traffic_guidance
           ]
-
-
         })
 
-        //设置navigationtitle+
-        wx.setNavigationBarTitle({
-          title: res.data.data.name
-        })
+
 
       }
     })
@@ -236,11 +229,60 @@ Page({
         "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function(res) {
-        console.log("评论接口数据："+res)
+        console.log("评论接口数据：",res.data)
+
 
         that.setData({
-          commentsList: res.data.data
+          commentsList: res.data.data,
+          commentTotalPage:res.data.page.total_page
+        })
+      }
+    })
+  },
 
+  //加载更多评论
+  loading:function(){
+    var that=this;
+    if (this.data.commentTotalPage > this.data.commentNowPage){
+      this.data.commentNowPage = this.data.commentNowPage + 1;
+    }else{
+      wx.showToast({
+        title: '数据也是有底线的',
+      })
+      return ;
+    }
+    //请求评论接口
+    wx.request({
+      url: 'http://106.39.228.248/index.php/comments/commentsList',
+      data: {
+        page:this.data.commentNowPage,
+        size: 10,
+        id: this.data.myid,
+      },
+      method: "POST",
+      // 请求头部
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success: function (res) {
+        console.log("评论接口数据：", res.data)
+
+
+        // 回调函数
+        var moment_list = that.data.commentsList;
+
+        if (res.data.data.length > 0) {
+          for (var i = 0; i < res.data.data.length; i++) {
+            moment_list.push(res.data.data[i]);
+          }
+        } else {
+          wx.showToast({
+            title: '没内容了',
+          })
+        }
+        // 设置数据
+        that.setData({
+          commentsList: moment_list
         })
       }
     })
@@ -248,9 +290,7 @@ Page({
 
 
 
-
   },
-
 
 // 跳转到立即预约界面
   onclick: function (res) {
@@ -258,6 +298,9 @@ Page({
       url: '/pages/homepage/webview/webview?id=' + this.data.subscribeUrl + "&title=" + this.data.mytitle,
     })
   },
+
+
+ 
 
   //地图
   seeMap: function () {

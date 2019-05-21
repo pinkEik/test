@@ -1,6 +1,5 @@
 /* 场馆详情页 css*/
 .Venue_layout{
-  height:auto;
   padding:15rpx;
   font-size:22rpx;
 }
@@ -73,7 +72,15 @@ line-height:2;
 }
 /*相关 布局*/
 .tab-content{
-  padding:15rpx 0;
+  height: 100%;
+flex: 1;
+position: fixed;    
+width: 100%; 
+ display:flex;
+ flex-direction:column;
+
+
+
 }
 .about_cont{
   height:100%;
@@ -83,8 +90,12 @@ line-height:2;
 .show{
     display:block;
     flex: 1;
-    height: 100%;
+    height: 50%;
 }
+
+/* .showcomment_tab{
+  
+} */
 .hidden{
     display:none;
     flex: 1;
@@ -104,12 +115,27 @@ line-height:2;
   height: 30px;
 }
 
+.comm_info_title{
+ font-family: extra-expanded;
+ font-size: 15px;
+
+}
+
+.tab_info{
+  /* margin: 10px; */
+  /* padding: 10px; */
+  margin-right: 10px;
+}
+
 .addcomment {
 position: fixed;
-bottom: 0;
+bottom: 10px;
 width: 100%;
 background: #fff;
+
 }
+
+/* 搜索按钮样式 */
 .page_row{
   margin-top:10px; 
   display: flex;
@@ -125,15 +151,23 @@ background: #fff;
   margin-left: 20rpx;
 }
 .search_arr input{
-  margin-left: 60rpx;
+  margin-left: 30rpx;
   height: 60rpx;
   border-radius: 5px;
 }
 .sousuo {
   margin-left: 15rpx;
-  width: 15%;
-  line-height: 150%;
+  width: 15%; 
+  line-height: 100%;
   text-align: center;
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
 }
+
+
+
+
 /*  e:场馆相关*/
