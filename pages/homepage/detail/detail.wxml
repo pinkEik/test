@@ -1,8 +1,6 @@
 <!--  场馆详情页  -->
 <!--  s:全局  -->
 <view class="Venue_layout">
-
-
   <!--  场馆图片 -->
   <view class="ven_img">
         <image src="{{splashImg}}" class="ven_img" mode='aspectFill' binderror='loadimg' bindload='loadimg'/>
@@ -15,7 +13,6 @@
             <text class='ven_title'>{{mytitle}}</text>
             <button class='booking' size='mini' bindtap='onclick'>立即预约</button>
           </view>
-
         <!-- 信息 -->
         <view class='info_time'>
           <view class='time_tit'>开放时间：</view>
@@ -27,7 +24,6 @@
           <view class='add_mg'>{{address}}</view>
           <button bindtap="seeMap" class='map_btn'>地图</button>
         </view>
-
         <view class='info_phone'>
           <view class='phone_tit'>电话：</view>
           <view class='phone_mg'>{{phone}}</view>
