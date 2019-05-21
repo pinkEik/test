@@ -90,7 +90,7 @@ width: 100%;
 .show{
     display:block;
     flex: 1;
-    height: 50%;
+   margin: 15rpx 0;
 }
 
 /* .showcomment_tab{
@@ -103,6 +103,7 @@ width: 100%;
 .comment_list{
   display: flex;
   flex-direction: row;
+  border-bottom: 1px solid #eee
 }
 .comm_info {
   display: flex;
@@ -111,13 +112,15 @@ width: 100%;
 }
 
 .image_item{
-  width: 30px;
-  height: 30px;
+ /* width: 30px;
+  height: 30px;*/
+  max-width: 10%;
+  height: auto;
 }
 
 .comm_info_title{
  font-family: extra-expanded;
- font-size: 15px;
+ font-size: 30rpx;
 
 }
 

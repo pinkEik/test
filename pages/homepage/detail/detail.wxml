@@ -8,7 +8,7 @@
         <image src="{{splashImg}}" class="ven_img" mode='aspectFill' binderror='loadimg' bindload='loadimg'/>
   </view>
 
-  <!--  s:场馆信息 -->
+  <!--  s:场馆信息 -->shmm
   <view class="ven_Notice">
           <!-- title、订票 -->
           <view class='ven_info'>
