@@ -1,4 +1,4 @@
-// pages/search/search.js
+
 Page({
 
   /**
@@ -7,34 +7,41 @@ Page({
   data: {
     searchValue: '',
     mydata: [],
+    pages: ""
 
-    
+
   },
 
-  searchinfo: function (e) {
-    console.log("输入框内容：" +e.detail.value)
+  mysearchInfo: function (e) {
+    console.log("输入框内容：" + e.detail.value)
 
     this.setData({
       searchValue: e.detail.value,
     });
-  
-  },
 
-  searchonclick: function (e) {
-  var that=this;
-    console.log("ddd" + this.data.searchValue)
+  },
+  //搜索事件点击
+  mySearchOnclick: function (e) {
+    console.log("输入框内容searchValue：" + searchValue)
+
+    var that = this;
     wx.request({
-      
-      url: 'https://api.apiopen.top/musicRankingsDetails?type=' + this.data.searchValue,
-      method: 'post',
-      headers: {
+
+      url: 'http://106.39.228.248/index.php/venues/venuesList',
+      data: {
+        page: this.data.pages,
+        size: 10,
+        name: this.data.searchValue
+      },
+      method: "POST",
+      header: {
         'Content-Type': 'application/json'
       },
       success: function (res) {
-        console.log(res)
+        console.log(res.data.data)
 
         that.setData({
-         mydata: res.data.result
+          mydata: res.data.data
         })
       },
       fail: function (e) {
@@ -44,13 +51,15 @@ Page({
         });
       },
     });
-    },
+  },
 
-  onclickdetail:function(res){
-  var data = res.currentTarget.dataset;
+  onclickdetail: function (res) {
+    var data = res.currentTarget.dataset;
+    console.log(data)
     console.log("a", data.name)
+    console.log("a", data.index)
     wx.navigateTo({
-      url: '/pages/detail/detail?name=' + data.name,
+      url: '/pages/homepage/detail/detail?name=' + data.name + '&id=' + data.index,
     })
   },
 
@@ -61,26 +70,10 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
 
-  },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
+ 
+ 
 
   /**
    * 生命周期函数--监听页面卸载

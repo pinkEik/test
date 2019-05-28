@@ -2,22 +2,22 @@
     <view class="search">
       <view class="df search_arr">
         <icon class="searchcion" size='20' type='search'></icon>
-        <input class=""  placeholder="请输入关键字" value="{{searchValue}}" bindinput='searchinfo'/>
+        <input class=""  placeholder="请输入关键字" value="{{searchValue}}" bindinput='mysearchInfo'/>
       </view>
     </view>
-    <view class='sousuo' bindtap='searchonclick'>搜索</view>
+    <view class='sousuo' bindtap='mySearchOnclick'>搜索</view>
   </view>
 
 
-  <view class="show"  wx:for="{{mydata}}">
+  <view class="show"  wx:for="{{mydata}}" >
 
-<view class='layout_horizontal' bindtap='onclickdetail'  data-name='{{item.authors}}'> 
+<view class='layout_horizontal' bindtap='onclickdetail'  data-name='{{item.name}}'  data-index="{{item.id}}" wx:for-index='index'> 
 
 <!-- 这里是图片因为接口没图片 注释掉 -->
   <!-- <image class='image_item' src="{{item.src}}"> </image> -->
 
   <view class='layout_vertical'  >
-    <text class='title_item' >{{item.title}}</text>
+    <text class='title_item' >{{item.name}}</text>
     <!-- <text class='text_item'>{{item.authors}}</text> -->
   </view>
   </view>

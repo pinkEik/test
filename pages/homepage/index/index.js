@@ -53,11 +53,11 @@ Page({
       url: '/pages/homepage/search/search',
     })
   },
-
   //轮播图点击事件swipclick
-  onclickswiper: function(e) {
+  swiperclick: function(e) {
     wx.navigateTo({
-      url: '/pages/homempae/detail/detail?id=' + e.currentTarget.id,
+     // url: '/pages/homempae/detail/detail?id=' + e.currentTarget.id,
+      url: '/pages/homempae/webview/webview'
     })
   },
 

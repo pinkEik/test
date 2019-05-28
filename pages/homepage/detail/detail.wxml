@@ -1,12 +1,13 @@
 <!--  场馆详情页  -->
 <!--  s:全局  -->
+
 <view class="Venue_layout">
   <!--  场馆图片 -->
   <view class="ven_img">
         <image src="{{splashImg}}" class="ven_img" mode='aspectFill' binderror='loadimg' bindload='loadimg'/>
   </view>
 
-  <!--  s:场馆信息 -->shmm
+  <!--  s:场馆信息 -->
   <view class="ven_Notice">
           <!-- title、订票 -->
           <view class='ven_info'>
@@ -32,49 +33,48 @@
 <!--  e:场馆信息 -->
 
 <!--   s:场馆相关 -->
-<view class="ven_about">
+
 <!--  相关_导航-->
-<view class="nav-tabs">
-    <view class="tab-list {{currentTab == idx?'active':''}}" wx:for="{{tabArray}}" wx:for-index="idx"                       wx:for-item="itemName" data-current="{{idx}}" bindtap="swichNav">{{itemName}}
+    <view class="nav-tabs">
+        <view class="tab-list {{currentTab == idx?'active':''}}" wx:for="{{tabArray}}" wx:for-index="idx"                       wx:for-item="itemName" data-current="{{idx}}" bindtap="swichNav">{{itemName}}
+        </view>
     </view>
-</view>
+
+
 
 
 <!--  相关 布局-->
-<swiper current="{{currentTab}}" class="tab-content" duration="300"  bindchange="bindChange">
+<view class='infoview'>
 
-<!--  s:相应盒子  -->
-<swiper-item wx:for="{{tabArray}}" wx:for-index="idx" wx:for-item="itemName" class="swiper-item">
-<scroll-view scroll-y="true" scroll-x="false" class='about_cont' lower-threshold="50" bindscrolltolower="loading" >
-<view class='tab_info' hidden='{{showOrHiddenInfo}}'>{{swiperinfo}}</view> 
-  <!-- 展示评论  -->
-  <view class="show comment_tab"  wx:for="{{commentsList}}"  hidden='{{showOrHidden}}'>
-        <view class='comment_list'> 
-            <image class='image_item'   src="/images/cat.png"></image>
-              <!-- src="{{item.head_portrait}}" -->
-                <view class='comm_info'>
-                    <text class='comm_info_title' >{{item.nick_name}}</text>
-                    <text class='comm_info_mg'>{{item.comments_msg}}</text>
+      <!--  s:相应盒子  -->
+              <view  wx:for-index="idx" wx:for-item="itemName" class="swiper-item" >
+
+                <view class='tab_info' hidden='{{showOrHiddenInfo}}'>{{swiperinfo}}</view> 
+                <!-- 展示评论  -->
+                <view class='showcomment_tab'>
+                    <view class="show comment_tab"  wx:for="{{commentsList}}"  hidden='{{showOrHidden}}'>
+                          <view class='comment_list'> 
+                              <image class='image_item'   src="/images/cat.png"></image>
+                                <!-- src="{{item.head_portrait}}" -->
+                                  <view class='comm_info'>
+                                      <text class='comm_info_title' >{{item.nick_name}}</text>
+                                      <text class='comm_info_mg'>{{item.comments_msg}}</text>
+                                  </view>
+                          </view>
+
+                    </view >
                 </view>
-        </view>
-
-  </view >
-</scroll-view>
-    <!-- 添加评论按钮输入框 -->
-</swiper-item>
-<!--  e:相应盒子  -->
-</swiper>  
-
-
+                  <!-- 添加评论按钮输入框 -->
+              </view>
+      <!--  e:相应盒子  -->
 </view>
 
-
-<!--   e:场馆相关 -->
 <view class="addcomment" hidden='{{showOrHidden}}'>
+    <view class='line'></view>
         <view class='page_row'>
             <view class="search">
                 <view class="search_arr">
-                  <input class=""  placeholder="输入想发布的话" value="{{searchValue}}" bindinput='searchinfo'/>
+                  <input class="search_view"  placeholder="输入想发布的话" value="{{searchValue}}" bindinput='searchinfo'/>
                 </view>
             </view>
             <view class='sousuo' bindtap='onclickpublish'>发布</view>
@@ -82,5 +82,8 @@
 </view> 
 
 
+<!--   e:场馆相关 -->
+
 </view>
-<!--  e:全局  -->
+
+

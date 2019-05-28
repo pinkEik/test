@@ -21,13 +21,16 @@ Page({
     splashImg: "",
     subscribeUrl: "", //立即预约 网址url
     swiperinfo: "", //tab 切换底部内容
+   
+
     showOrHidden: false, //评论是否显示  false显示 true隐藏
     showOrHiddenInfo: true, //场馆介绍 景区须知是否显示 和showOrHidden相对应
     publishInfo: "", //发布框内容
-    arrayTabInfo: [], //底部tab内容
+    arrayTabInfo: [1,2,3], //底部tab内容
     commentsList: "", //评论列表
     commentTotalPage: 0,
     commentNowPage: 0,
+
     tabArray: ["评论", "景区须知", "场馆介绍", "交通指南"],
     //地图
     showModal: false,
@@ -40,46 +43,11 @@ Page({
 
 
 
-  
-
-  //事件处理函数
-  bindChange: function(e) {
-    var that = this;
-    that.setData({
-      currentTab: e.detail.current,
-    });
-
-    console.log("“bindChange”" + this.data.currentTab)
-    if (this.data.currentTab == 0) {
-      that.setData({
-        showOrHidden: false,
-        showOrHiddenInfo: true
-      })
-    } else {
-      that.setData({
-        showOrHidden: true,
-        showOrHiddenInfo: false
-      })
-    }
-
-    if (this.data.currentTab == 1) {
-      that.setData({
-        swiperinfo: this.data.arrayTabInfo[0],
-      })
-    } else if (this.data.currentTab == 2) {
-      that.setData({
-        swiperinfo: this.data.arrayTabInfo[1],
-      })
-    } else if (this.data.currentTab == 3) {
-      that.setData({
-        swiperinfo: this.data.arrayTabInfo[2],
-      })
-    }
-  },
-
 
   swichNav: function(e) {
+
     var that = this;
+    console.log("切换tab:")
 
     if (this.data.currentTab === e.target.dataset.current) {
       return false;
@@ -102,11 +70,17 @@ Page({
     }
 
     if (this.data.currentTab == 1) {
+    
+        that.setData({
+          swiperinfo: this.data.arrayTabInfo[0],
+        })
+      
+      console.log("currentTab1:")
+
+    } 
+    else if (this.data.currentTab == 2) {
       that.setData({
-        swiperinfo: this.data.arrayTabInfo[0],
-      })
-    } else if (this.data.currentTab == 2) {
-      that.setData({
+        
         swiperinfo: this.data.arrayTabInfo[1],
       })
     } else if (this.data.currentTab == 3) {
@@ -117,6 +91,7 @@ Page({
 
 
   },
+
 
   //获取发布框输入的内容
   searchinfo: function(e) {
@@ -129,7 +104,7 @@ Page({
 
   //发布按钮点击
   onclickpublish: function(e) {
-
+    var that=this;
     console.log("点击发布按钮获取 评论内容：" + this.data.publishInfo)
 
     //发送评论
@@ -137,23 +112,19 @@ Page({
 
       url: 'http://106.39.228.248/index.php/comments/addComments',
       data: {
-        
         venues_id: this.data.myid,
-
         // user_id: 23423423,
         msg: this.data.publishInfo
       },
       method: "POST",
-      headers: {
+      header: {
         // 'Content-Type': 'application/json'
-        // "Content-Type": "application/x-www-form-urlencoded"
-
+        "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function(res) {
         console.log("====" ,res)
 
         wx.showToast({
-          
           title: '发送成功',
         })
       },
@@ -169,6 +140,7 @@ Page({
 
   //加载页面内容
   onLoad: function(option) {
+
     var that = this;
     console.log("接受的id:" + option.id)
     console.log("接受的name:" + option.name)
@@ -238,10 +210,21 @@ Page({
         })
       }
     })
+
+    console.log("a"+this.data.arrayTabInfo.length)
   },
 
+
   //加载更多评论
-  loading:function(){
+  onReachBottom:function(e){
+  
+
+    if (this.data.currentTab != 0) {
+      return;
+    }
+      wx.showLoading({
+      title: '玩命加载中',
+    })
     var that=this;
     if (this.data.commentTotalPage > this.data.commentNowPage){
       this.data.commentNowPage = this.data.commentNowPage + 1;
@@ -285,11 +268,11 @@ Page({
           commentsList: moment_list
         })
       }
+
+            
+
     })
-
-
-
-
+    wx.hideLoading();
   },
 
 // 跳转到立即预约界面

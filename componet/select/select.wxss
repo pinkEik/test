@@ -25,8 +25,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    padding:0 10px 10px 10px;
+    padding:0 5rpx 0 15rpx;
     font-size: 14px;
+    color: #eee;
 
 }
 .com-sList{
